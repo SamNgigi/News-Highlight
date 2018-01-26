@@ -40,7 +40,7 @@ def process_results(source_list):
 
     We process results will transform our dictionary into a list of objects.
     """
-    # news_results = []
+    news_results = []
     for source in source_list:
         id = source.get('id')
         print(id)
@@ -52,3 +52,7 @@ def process_results(source_list):
 
         if url:
             source_object = Source(id, name, description, url, category)
+
+            news_results.append(source_object)
+
+    return news_results

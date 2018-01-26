@@ -17,11 +17,11 @@ def index():
     Example call from views would be
     everything
     """
-    top_headlines = get_sources('de', 'general')
+    sources_list = get_sources('us', 'general')
     test_args = 'Working!'
     return render_template('index.html',
                            test_param=test_args,
-                           headlines=top_headlines)
+                           sources=sources_list)
 
 
 @app.route('/articles/<highlight>')

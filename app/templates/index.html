@@ -11,8 +11,12 @@
     <body>
       <!-- At most basic should display news sources list  -->
       <h1>Hi! I am {{test_param}}</h1>
-      <ul>
-        <li>{{headlines}}</li>
-      </ul>
+      <!-- Popular movie section  -->
+       <h3> General News Sources</h3>
+        <ul>
+           {% for source in sources %}
+               <li>{{ source.name}}</li>
+           {% endfor %}
+       </ul>
     </body>
 </html>
