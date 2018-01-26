@@ -24,14 +24,14 @@ def get_sources(country, category):
 
         news_results = None
 
-        if get_news_response['articles']:
-            news_results_list = get_news_response['articles']
-            news_results = process_results(news_results_list)
-            """
-            We now want to process the dictionary and
-            output a list of objects - news_results.
+        # if get_news_response['sources']:
+        #     news_results_list = get_news_response['sources']
+        #     news_results = process_results(news_results_list)
+    """
+    We now want to process the dictionary and
+    output a list of objects - news_results.
 
-            We will use the process_results() function to do that.
-            """
+    We will use the process_results() function to do that.
+    """
 
     return news_results
