@@ -40,14 +40,17 @@ def process_results(source_list):
 
     We process results will transform our dictionary into a list of objects.
     """
-    # news_results = []
+    news_results = []
     source_dictionary = {}
     for result in source_list:
 
         source_id = result['source']
         source_dictionary['id'] = source_id['id']
         source_dictionary['name'] = source_id['name']
-        print(source_dictionary)
+        id = source_dictionary['id']
+        name = source_dictionary['name']
+        # print(name)
+        # print(id)
         author = result.get('author')
         title = result.get('title')
         url = result.get('url')
@@ -55,17 +58,9 @@ def process_results(source_list):
         publishedAt = result.get('publishedAt')
 
         if source_dictionary['id']:
-            print(source_dictionary)
-            # print(id)
-            # name = source.get('name')
-            # print(name)
-            #     description = source.get('description')
-            #     url = source.get('url')
-            #     category = source.get('category')
-            #
-            #     if url:
-            #         source_object = Source(id, name, description, url, category)
-            #
-            #         news_results.append(source_object)
-            #
-            # return news_results
+            print(id)
+            source_object = Source(
+                id, name, author, title, url, urlToImage, publishedAt)
+            news_results.append(source_object)
+
+    # return news_results
