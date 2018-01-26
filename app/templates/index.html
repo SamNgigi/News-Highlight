@@ -1,1 +1,14 @@
-<h1>Hi! I am {{test_param}}</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% if title %}
+        <title> {{ title }}</title>
+        {% else %}
+        <title> Welcome to the best News Highlights website </title>
+        {% endif %}
+    </head>
+    <body>
+      <h1>Hi! I am {{test_param}}</h1>
+    </body>
+</html>
