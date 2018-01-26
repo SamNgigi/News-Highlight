@@ -17,21 +17,25 @@ def index():
     Example call from views would be
     everything
     """
-    general_list = get_sources('us', 'general')
     business_list = get_sources('us', 'business')
+    technology_list = get_sources('us', 'technology')
+    science_list = get_sources('us', 'science')
+    health_list = get_sources('us', 'health')
     sports_list = get_sources('us', 'sports')
     entertainment_list = get_sources('us', 'entertainment')
     test_args = 'Working!'
     return render_template('index.html',
                            test_param=test_args,
-                           general=general_list,
                            business=business_list,
+                           technology=technology_list,
+                           science=science_list,
+                           health=health_list,
                            sports=sports_list,
                            entertainment=entertainment_list)
 
 
-@app.route('/articles/<highlight>')
-def articles(highlight):
+@app.route('/articles/<id>')
+def articles(id):
     """
     View articles page that returns the news article from a highlight
     """
