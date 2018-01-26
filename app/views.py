@@ -17,11 +17,17 @@ def index():
     Example call from views would be
     everything
     """
-    sources_list = get_sources('us', 'general')
+    general_list = get_sources('us', 'general')
+    business_list = get_sources('us', 'business')
+    sports_list = get_sources('us', 'sports')
+    entertainment_list = get_sources('us', 'entertainment')
     test_args = 'Working!'
     return render_template('index.html',
                            test_param=test_args,
-                           sources=sources_list)
+                           general=general_list,
+                           business=business_list,
+                           sports=sports_list,
+                           entertainment=entertainment_list)
 
 
 @app.route('/articles/<highlight>')
