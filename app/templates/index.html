@@ -7,6 +7,7 @@
         {% else %}
         <title> Welcome to the best News Highlights website </title>
         {% endif %}
+        {% import 'macros.html' as macro %}
     </head>
     <body>
       <!-- At most basic should display news sources list  -->
@@ -14,27 +15,19 @@
       <!-- Popular movie section  -->
        <h3> General News Sources</h3>
         <ul>
-           {% for source in general %}
-               <li>{{ source.name}}</li>
-           {% endfor %}
+            {{ macro.displaySourceList(general)}}
        </ul>
        <h3> Business News Sources</h3>
         <ul>
-           {% for source in business %}
-               <li>{{ source.name}}</li>
-           {% endfor %}
+           {{ macro.displaySourceList(business)}}
        </ul>
        <h3> Sports News Sources</h3>
         <ul>
-           {% for source in sports %}
-               <li>{{ source.name}}</li>
-           {% endfor %}
+            {{ macro.displaySourceList(sports)}}
        </ul>
        <h3> Entertainment News Sources</h3>
         <ul>
-           {% for source in entertainment %}
-               <li>{{ source.name}}</li>
-           {% endfor %}
+            {{ macro.displaySourceList(entertainment)}}
        </ul>
     </body>
 </html>
