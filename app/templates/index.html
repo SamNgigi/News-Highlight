@@ -1,24 +1,2 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% import 'macros.html' as macro %}
-
-{% block content %}
-  <!-- At most basic should display news sources list  -->
-  <h1>Hi! I am {{test_param}}</h1>
-  <!-- Popular movie section  -->
-   <h3> General News Sources</h3>
-    <ul>
-        {{ macro.displaySourceList(general)}}
-   </ul>
-   <h3> Business News Sources</h3>
-    <ul>
-       {{ macro.displaySourceList(business)}}
-   </ul>
-   <h3> Sports News Sources</h3>
-    <ul>
-        {{ macro.displaySourceList(sports)}}
-   </ul>
-   <h3> Entertainment News Sources</h3>
-    <ul>
-        {{ macro.displaySourceList(entertainment)}}
-   </ul>
-{% endblock%}

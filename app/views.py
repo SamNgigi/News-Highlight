@@ -17,7 +17,7 @@ def index():
     Example call from views would be
     everything
     """
-    business_list = get_sources('us', 'business')
+    business_list = get_sources('us', '')
     # business_list = get_sources('us', 'business')
     # sports_list = get_sources('us', 'sports')
     # entertainment_list = get_sources('us', 'entertainment')
