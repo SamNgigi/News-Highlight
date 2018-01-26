@@ -17,7 +17,7 @@ def index():
     Example call from views would be
     everything
     """
-    top_headlines = get_sources('us', 'business')
+    top_headlines = get_sources('de', 'general')
     test_args = 'Working!'
     return render_template('index.html',
                            test_param=test_args,
