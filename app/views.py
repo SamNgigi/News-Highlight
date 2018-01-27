@@ -18,20 +18,22 @@ def index():
     everything
     """
     general_list = get_sources('us', 'general')
-    # business_list = get_sources('us', 'business')
-    # sports_list = get_sources('us', 'sports')
-    # entertainment_list = get_sources('us', 'entertainment')
+    business_list = get_sources('us', 'business')
+    technology_list = get_sources('us', 'technology')
+    sports_list = get_sources('us', 'sports')
+    health_list = get_sources('us', 'health')
+    science_list = get_sources('us', 'science')
+    entertainment_list = get_sources('us', 'entertainment')
     test_args = 'Working!'
     return render_template('index.html',
                            test_param=test_args,
-                           general=general_list)
-
-    # return render_template('index.html',
-    #                        test_param=test_args,
-    #                        general=general_list,
-    #                        business=business_list,
-    #                        sports=sports_list,
-    #                        entertainment=entertainment_list)
+                           general=general_list,
+                           business=business_list,
+                           technology=technology_list,
+                           sports=sports_list,
+                           health=health_list,
+                           science=science_list,
+                           entertainment=entertainment_list)
 
 
 @app.route('/news/<id>')
