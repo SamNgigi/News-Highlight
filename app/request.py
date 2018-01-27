@@ -30,8 +30,8 @@ def get_sources(coutry, category):
         source_results = None
 
         if get_news_response['sources']:
-            news_results_list = get_news_response['sources']
-            source_results = process_sources(news_results_list)
+            source_results_list = get_news_response['sources']
+            source_results = process_sources(source_results_list)
 
     return source_results
 
@@ -81,7 +81,7 @@ def get_articles(id):
     return news_results
 
 
-def process_articles(sources_list):
+def process_articles(articles_list):
     """
     We now want to process the dictionary and
     output a list of objects - news_results.
@@ -90,9 +90,10 @@ def process_articles(sources_list):
     """
     news_results = []
     source_dictionary = {}
-    for result in sources_list:
-
+    for result in articles_list:
+        # We store the nested dictionary in source_id
         source_id = result['source']
+        # We extract and store it in our source_dictionary
         source_dictionary['id'] = source_id['id']
         source_dictionary['name'] = source_id['name']
         id = source_dictionary['id']

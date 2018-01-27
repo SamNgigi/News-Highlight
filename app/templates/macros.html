@@ -6,3 +6,11 @@
   </div>
 {% endfor %}
 {% endmacro %}
+
+{% macro displayArticleList(articles_list) %}
+{% for article in articles_list %}
+  <div class="col-sm-6">
+    <a href="/news/{{article.id}}">{{article.name}}</a>
+  </div>
+{% endfor %}
+{% endmacro %}
