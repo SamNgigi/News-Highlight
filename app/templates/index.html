@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% import 'macros.html' as macro %}
-{% block content %}
+{% extends 'base.html' %} {% import 'macros.html' as macro %} {% block content %}
 <div class="container-fluid mt-4">
   <div class="jumbotron">
     <h1 class="display-4">Hello!</h1>
@@ -8,20 +7,28 @@
     <p class="lead"></p>
     <hr class="my-4">
     <p>Your journey starts here!</p>
-    <p>Tap the button below to choose news sources.  Then click on news source to view their top headlines</p>
+    <p>Tap the button below to choose news sources by category. Then click on news source to view their top headlines</p>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Sources</a>
+      <p>
+        <a class="btn btn-primary btn-lg" href="#generalNews" role="button" aria-expanded="false" aria-controls="collapseExample">General</a>
+        <a class="btn btn-primary btn-lg" href="#businessNews" role="button" aria-expanded="false" aria-controls="collapseExample">Business</a>
+        <a class="btn btn-primary btn-lg" href="#technologyNews" role="button" aria-expanded="false" aria-controls="collapseExample">Technology</a>
+        <a class="btn btn-primary btn-lg" href="#sportsNews" role="button" aria-expanded="false" aria-controls="collapseExample">Sports</a>
+        <a class="btn btn-primary btn-lg" href="#healthNews" role="button" aria-expanded="false" aria-controls="collapseExample">Health</a>
+        <a class="btn btn-primary btn-lg" href="#scienceNews" role="button" aria-expanded="false" aria-controls="collapseExample">Science</a>
+        <a class="btn btn-primary btn-lg" href="#entertainmentNews" role="button" aria-expanded="false" aria-controls="collapseExample">Entertainment</a>
+      </p>
     </p>
   </div>
 </div>
 <div class="container-fluid">
   <div class="row">
-      <h3>General News Sources</h3>
+    <h3>General News Sources</h3>
   </div>
   <div class="row">
-        {{macro.displaySourceList(general)}}
+    {{macro.displaySourceList(general)}}
   </div>
-  
+
 </div>
 
 {% endblock%}
