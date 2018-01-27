@@ -10,24 +10,31 @@
     <p>Tap the button below to choose news sources by category. Then click on news source to view their top headlines</p>
     <p class="lead">
       <p>
-        <a class="btn btn-primary btn-lg" href="#generalNews" role="button" aria-expanded="false" aria-controls="collapseExample">General</a>
-        <a class="btn btn-primary btn-lg" href="#businessNews" role="button" aria-expanded="false" aria-controls="collapseExample">Business</a>
-        <a class="btn btn-primary btn-lg" href="#technologyNews" role="button" aria-expanded="false" aria-controls="collapseExample">Technology</a>
-        <a class="btn btn-primary btn-lg" href="#sportsNews" role="button" aria-expanded="false" aria-controls="collapseExample">Sports</a>
-        <a class="btn btn-primary btn-lg" href="#healthNews" role="button" aria-expanded="false" aria-controls="collapseExample">Health</a>
-        <a class="btn btn-primary btn-lg" href="#scienceNews" role="button" aria-expanded="false" aria-controls="collapseExample">Science</a>
-        <a class="btn btn-primary btn-lg" href="#entertainmentNews" role="button" aria-expanded="false" aria-controls="collapseExample">Entertainment</a>
+        <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#generalNews" role="button" aria-expanded="false" aria-controls="collapseExample">General</a>
+        <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#businessNews" role="button" aria-expanded="false" aria-controls="collapseExample">Business</a>
+        <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#technologyNews" role="button" aria-expanded="false" aria-controls="collapseExample">Technology</a>
+        <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#sportsNews" role="button" aria-expanded="false" aria-controls="collapseExample">Sports</a>
+        <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#healthNews" role="button" aria-expanded="false" aria-controls="collapseExample">Health</a>
+        <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#scienceNews" role="button" aria-expanded="false" aria-controls="collapseExample">Science</a>
+        <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#entertainmentNews" role="button" aria-expanded="false" aria-controls="collapseExample">Entertainment</a>
       </p>
     </p>
+    <div id="generalNews" class="collapse">
+      <div class="card">
+        <div class="card-header">
+          Choose prefered news source.
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">General News Sources</h3>
+          <div class="row">
+            {{macro.displaySourceList(general)}}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="container-fluid">
-  <div class="row">
-    <h3>General News Sources</h3>
-  </div>
-  <div class="row">
-    {{macro.displaySourceList(general)}}
-  </div>
 
 </div>
 
