@@ -44,3 +44,15 @@ def news(id):
     return render_template('news.html',
                            highlight_param=highlight_args,
                            news=news_args)
+
+
+@app.route('/news/article/<url>')
+def article(url):
+    """
+    View articles page that returns the news article from a highlight
+    """
+    news_args = get_news(url)
+    highlight_args = 'Route Working!!'
+    return render_template('news.html',
+                           highlight_param=highlight_args,
+                           news=news_args)
