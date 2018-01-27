@@ -1,6 +1,10 @@
 <!--Should display at most basic display all highlights from a source -->
-
-{% for news_result in news %}
-<h1>{{news_result.name}}</h1>
-{% endfor %}
-<h1>{{highlight_param}}</h1>
+{% extends 'base.html' %} {% import 'macros.html' as macro %}
+{% block content %}
+<div class="row">
+    <h1>{{highlight_param}}</h1>
+</div>
+<div class="row">
+      {{macro.displaySourceList(news)}}
+</div>
+{% endblock %}
