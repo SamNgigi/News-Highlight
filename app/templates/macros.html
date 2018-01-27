@@ -1,16 +1,22 @@
 <!-- The source_list we are iterating through is our parameter in the process_results function -->
-{% macro displaySourceList(source_list) %}
-{% for source in source_list %}
-  <div class="col-sm-3">
-    <a href="/news/{{source.id}}">{{source.name}}</a>
+{% macro displaySourceList(source_list) %} {% for source in source_list %}
+<div class="col-sm-3">
+  <a href="/news/{{source.id}}">{{source.name}}</a>
+</div>
+{% endfor %} {% endmacro %} {% macro displayArticleList(articles_list) %} {% for article in articles_list %}
+<div class="col-sm-4">
+  <div class="card-deck mb-2">
+    <div class="card">
+      <img class="card-img-top .img-fluid" src="{{article.urlToImage}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{article.title}}</h5>
+        <p class="card-text">{{article.description}}</p>
+        <p class="card-text"><a href="{{article.url}}">Click here for full article</a></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Published at: {{article.publishedAt}}</small>
+      </div>
+    </div>
   </div>
-{% endfor %}
-{% endmacro %}
-
-{% macro displayArticleList(articles_list) %}
-{% for article in articles_list %}
-  <div class="col-sm-6">
-    <a href="/news/{{article.id}}">{{article.name}}</a>
-  </div>
-{% endfor %}
-{% endmacro %}
+</div>
+{% endfor %} {% endmacro %}

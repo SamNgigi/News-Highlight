@@ -98,18 +98,19 @@ def process_articles(articles_list):
         source_dictionary['name'] = source_id['name']
         id = source_dictionary['id']
         name = source_dictionary['name']
-        # print(name)
+        print(name)
         # print(id)
         author = result.get('author')
         title = result.get('title')
+        description = result.get('description')
         url = result.get('url')
         urlToImage = result.get('urlToImage')
         publishedAt = result.get('publishedAt')
 
-        if source_dictionary['id']:
+        if urlToImage:
             print(id)
             source_object = Articles(
-                id, name, author, title, url, urlToImage, publishedAt)
+                id, name, author, title, description, url, urlToImage, publishedAt)
             news_results.append(source_object)
 
     return news_results

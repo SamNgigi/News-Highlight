@@ -41,6 +41,7 @@ def news(id):
     """
     news_args = get_articles(id)
     highlight_args = 'Route Working!!'
+    # name = f'{results_list}'
     return render_template('news.html',
                            highlight_param=highlight_args,
                            news=news_args)
