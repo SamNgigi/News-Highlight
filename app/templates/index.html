@@ -1,2 +1,61 @@
-{% extends 'base.html' %}
-{% import 'macros.html' as macro %}
+{% extends 'base.html' %} {% import 'macros.html' as macro %} {% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>General News Sources</h3>
+      <ul>
+        {{macro.displaySourceList(general)}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Business News Sources</h3>
+      <ul>
+        {{macro.displaySourceList()}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Technology News Sources</h3>
+      <ul>
+        {{macro.displaySourceList()}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Sports News Sources</h3>
+      <ul>
+        {{macro.displaySourceList()}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Health News Sources</h3>
+      <ul>
+        {{macro.displaySourceList()}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Science News Sources</h3>
+      <ul>
+        {{macro.displaySourceList()}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Entertainment News Sources</h3>
+      <ul>
+        {{macro.displaySourceList()}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

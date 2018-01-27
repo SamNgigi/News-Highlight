@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_sources
+from .request import get_sources, get_news
 
 #  Views
 
@@ -17,14 +17,14 @@ def index():
     Example call from views would be
     everything
     """
-    business_list = get_sources('us', '')
+    general_list = get_sources('us', 'business')
     # business_list = get_sources('us', 'business')
     # sports_list = get_sources('us', 'sports')
     # entertainment_list = get_sources('us', 'entertainment')
     test_args = 'Working!'
     return render_template('index.html',
                            test_param=test_args,
-                           business=business_list)
+                           general=general_list)
 
     # return render_template('index.html',
     #                        test_param=test_args,
@@ -34,10 +34,13 @@ def index():
     #                        entertainment=entertainment_list)
 
 
-@app.route('/articles/<highlight>')
-def articles(highlight):
+@app.route('/news/<id>')
+def news(id):
     """
     View articles page that returns the news article from a highlight
     """
+    news_args = get_news(id)
     highlight_args = 'Route Working!!'
-    return render_template('article.html', highlight_param=highlight_args)
+    return render_template('news.html',
+                           highlight_param=highlight_args,
+                           news=news_args)

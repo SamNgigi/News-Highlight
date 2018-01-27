@@ -1,1 +1,6 @@
 <!-- The source_list we are iterating through is our parameter in the process_results function -->
+{% macro displaySourceList(source_list) %}
+{% for source in source_list %}
+  <li>{{source.name}}</li>
+{% endfor %}
+{% endmacro %}
