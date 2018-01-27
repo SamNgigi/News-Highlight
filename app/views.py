@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_sources, get_news
+from .request import get_sources, get_articles
 
 #  Views
 
@@ -17,7 +17,7 @@ def index():
     Example call from views would be
     everything
     """
-    general_list = get_sources('us', 'business')
+    general_list = get_sources('us', 'general')
     # business_list = get_sources('us', 'business')
     # sports_list = get_sources('us', 'sports')
     # entertainment_list = get_sources('us', 'entertainment')
@@ -39,20 +39,14 @@ def news(id):
     """
     View articles page that returns the news article from a highlight
     """
-    news_args = get_news(id)
+    news_args = get_articles(id)
     highlight_args = 'Route Working!!'
     return render_template('news.html',
                            highlight_param=highlight_args,
                            news=news_args)
 
 
-@app.route('/news/article/<url>')
-def article(url):
-    """
-    View articles page that returns the news article from a highlight
-    """
-    news_args = get_news(url)
-    highlight_args = 'Route Working!!'
-    return render_template('news.html',
-                           highlight_param=highlight_args,
-                           news=news_args)
+"""
+We do not need another route to a sources articles since
+we will be displaying the urls tied to each article in our news list
+"""

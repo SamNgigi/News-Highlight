@@ -2,9 +2,10 @@ from app import app
 import urllib.request
 import json
 from .models import news_source
+from .models import news_articles
 
 Source = news_source.Source
-
+Articles = news_articles.Articles
 
 # Getting the api_key
 api_key = app.config['NEWS_API_KEY']
@@ -26,16 +27,61 @@ def get_sources(coutry, category):
         # print(get_news_response)
         # get_news_response is now a dictionary because of the json.loads()
 
-        news_results = None
+        source_results = None
 
-        if get_news_response['articles']:
-            news_results_list = get_news_response['articles']
-            news_results = process_results(news_results_list)
+        if get_news_response['sources']:
+            news_results_list = get_news_response['sources']
+            source_results = process_sources(news_results_list)
+
+    return source_results
+
+
+def process_sources(source_list):
+    """
+    We now want to process the dictionary and
+    output a list of objects - news_results.
+    We process results will transform our dictionary into a list of objects.
+    """
+    news_results = []
+    for source in source_list:
+        id = source.get('id')
+        print(id)
+        name = source.get('name')
+        print(name)
+        description = source.get('description')
+        url = source.get('url')
+        category = source.get('category')
+
+        if url:
+            source_object = Source(id, name, description, url, category)
+
+            news_results.append(source_object)
 
     return news_results
 
 
-def process_results(sources_list):
+def get_articles(id):
+    """
+    Function that gets the json response to our url request
+    """
+    get_source_news_url = source_url.format(
+        id, api_key)
+    with urllib.request.urlopen(get_source_news_url) as url:
+        get_news_data = url.read()
+        get_news_response = json.loads(get_news_data)
+        # print(get_news_response)
+        # get_news_response is now a dictionary because of the json.loads()
+
+        news_results = None
+
+        if get_news_response['articles']:
+            news_results_list = get_news_response['articles']
+            news_results = process_articles(news_results_list)
+
+    return news_results
+
+
+def process_articles(sources_list):
     """
     We now want to process the dictionary and
     output a list of objects - news_results.
@@ -61,29 +107,8 @@ def process_results(sources_list):
 
         if source_dictionary['id']:
             print(id)
-            source_object = Source(
+            source_object = Articles(
                 id, name, author, title, url, urlToImage, publishedAt)
             news_results.append(source_object)
-
-    return news_results
-
-
-def get_news(id):
-    """
-    Function that gets the json response to our url request
-    """
-    get_source_news_url = source_url.format(
-        id, api_key)
-    with urllib.request.urlopen(get_source_news_url) as url:
-        get_news_data = url.read()
-        get_news_response = json.loads(get_news_data)
-        # print(get_news_response)
-        # get_news_response is now a dictionary because of the json.loads()
-
-        news_results = None
-
-        if get_news_response['articles']:
-            news_results_list = get_news_response['articles']
-            news_results = process_results(news_results_list)
 
     return news_results
