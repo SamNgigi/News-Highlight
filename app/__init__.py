@@ -1,20 +1,30 @@
 from flask import Flask
-from .config import DevConfig
+from .config import config_options
 # from flask_bootstrap import Bootstrap
-"""
-Initializing our app
 
-'instance_relative_config=True' allows us to connect to
-the instance folder when the app is created
-"""
 
-app = Flask(__name__, instance_relative_config=True)
+def create_app(config_name):
+    """
+    Initializing our app
 
-# Setting up Configurations
-app.config.from_object(DevConfig)
-app.config.from_pyfile('config.py')
+    'instance_relative_config=True' allows us to connect to
+    the instance folder when the app is created
+    """
 
-# Initializing Flask Extension
-# bootstrap = Bootstrap(app)
+    app = Flask(__name__)
 
-from app import views
+    # Setting up Configurations
+    app.config.from_object(config_options[config_name])
+    # app.config.from_pyfile('config.py')
+
+    # Registering the blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
+    # Initializing Flask Extension
+    # bootstrap = Bootstrap(app)
+
+    # TODO: Will add the view
+    # from app import views
+
+    return app
