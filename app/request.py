@@ -48,12 +48,15 @@ def process_sources(source_list):
         print(id)
         name = source.get('name')
         print(name)
+        author = source.get('author')
         description = source.get('description')
+        urlToImage = source.get('urlToImage')
         url = source.get('url')
-        category = source.get('category')
+        publishedAt = source.get('publishedAt')
 
-        if url:
-            source_object = Source(id, name, description, url, category)
+        if urlToImage:
+            source_object = Source(
+                id, name, author, description, url, urlToImage, publishedAt)
 
             news_results.append(source_object)
 
