@@ -1,11 +1,11 @@
 from flask import render_template
-from app import app
-from .request import get_sources, get_articles
-
+from . import main
+from ..request import get_sources, get_articles
+# TODO: May have to import the Articles class here
 #  Views
 
 
-@app.route('/')
+@main.route('/')
 def index():
     """
     Function that returns the index page and its data
@@ -36,7 +36,7 @@ def index():
                            entertainment=entertainment_list)
 
 
-@app.route('/news/<id>')
+@main.route('/news/<id>')
 def news(id):
     """
     View articles page that returns the news article from a highlight
